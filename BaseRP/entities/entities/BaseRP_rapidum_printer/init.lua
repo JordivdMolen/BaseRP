@@ -5,16 +5,18 @@ include("shared.lua")
 ENT.SeizeReward = 950
 
 --Settings--
-local Color = Color( 255, 145, 0, 255 )
+local Color = Color( 255, 145, 0, 0 )
 local PrintTime1 = 1 --Range of the random timer--
-local PrintTime2 = 150
+local PrintTime2 = 50
 local Health = 500
 local PrintAmountRange1 = 2000
 local PrintAmountRange2 = 2500
-
+local overheatchance = 100 -- 3 is minimum and biggest change to explode
 local PrintMore
+local Limit = 6 -- VERY IMPORTANT
+Limit = Limit + 1
 function ENT:Initialize()
-	self:SetModel("models/props_c17/consolebox01a.mdl")
+	self:SetModel("models/props_lab/reciever01b.mdl")
 	self:PhysicsInit(SOLID_VPHYSICS)
 	self:SetMoveType(MOVETYPE_VPHYSICS)
 	self:SetSolid(SOLID_VPHYSICS)
@@ -31,6 +33,12 @@ function ENT:Initialize()
 	self.sound = CreateSound(self, Sound("ambient/levels/labs/equipment_printer_loop1.wav"))
 	self.sound:SetSoundLevel(52)
 	self.sound:PlayEx(1, 100)
+	self:Getowning_ent():SetNWInt("rapidumP", (self:Getowning_ent():GetNWInt("rapidumP") or 0 ) + 1)
+	DarkRP.notify(self:Getowning_ent(), 0, 5, "you own now: " ..self:Getowning_ent():GetNWInt("rapidumP") .." printers of this kind")
+	if self:Getowning_ent():GetNWInt("rapidumP") == Limit then
+		self:Remove()
+	DarkRP.notify(self:Getowning_ent(), 0, 7, "you have reached the limit!")
+	end
 end
 
 function ENT:OnTakeDamage(dmg)
@@ -122,6 +130,7 @@ function ENT:CreateMoneybag()
 	hook.Run("moneyPrinterPrinted", self, moneybag)
 	self.sparking = false
 	timer.Simple(math.random(PrintTime1, PrintTime2), function() PrintMore(self) end)
+	DarkRP.notify(self:Getowning_ent(), 0, 7, "your Rapidum printer has printed: $" ..amount )
 end
 
 function ENT:Think()
@@ -146,4 +155,6 @@ function ENT:OnRemove()
 	if self.sound then
 		self.sound:Stop()
 	end
+		self:Getowning_ent():SetNWInt("rapidumP", (self:Getowning_ent():GetNWInt("rapidumP") or 0 ) - 1)
+		DarkRP.notify(self:Getowning_ent(), 0, 5, "your moneyprinters is sucesfully removed. it has been deleted from the limit count. you own now: " ..self:Getowning_ent():GetNWInt("rapidumP") .." printers of this kind")
 end

@@ -12,7 +12,7 @@ DarkRP.createEntity("Bronze Printer", {
 	ent = "BaseRP_bronze_printer",
 	model = "models/props_c17/consolebox01a.mdl",
 	price = 5000,
-	max = 6,
+	max = 99999, -- EDIT LIMIT IN BaseR\Pentities\entities\(printer ent)\init.lua !!!
 	cmd = "buybronzeBaseRPprinter",
 })
 
@@ -20,7 +20,7 @@ DarkRP.createEntity("Silver Printer", {
 	ent = "BaseRP_silver_printer",
 	model = "models/props_c17/consolebox01a.mdl",
 	price = 5000,
-	max = 6,
+	max = 999999, -- EDIT LIMIT IN BaseR\Pentities\entities\(printer ent)\init.lua !!!
 	cmd = "buysilverBaseRPprinter",
 })
 
@@ -28,7 +28,7 @@ DarkRP.createEntity("Gold Printer", {
 	ent = "BaseRP_gold_printer",
 	model = "models/props_c17/consolebox01a.mdl",
 	price = 5000,
-	max = 6,
+	max = 99999, -- EDIT LIMIT IN BaseR\Pentities\entities\(printer ent)\init.lua !!!
 	cmd = "buygoldBaseRPprinter",
 })
 
@@ -36,7 +36,7 @@ DarkRP.createEntity("Diamond Printer", {
 	ent = "BaseRP_diamond_printer",
 	model = "models/props_c17/consolebox01a.mdl",
 	price = 5000,
-	max = 6,
+	max = 99999, -- EDIT LIMIT IN BaseR\Pentities\entities\(printer ent)\init.lua !!!
 	cmd = "buyDiamondBaseRPprinter",
 })
 
@@ -44,7 +44,7 @@ DarkRP.createEntity("Rapidum Printer", {
 	ent = "BaseRP_rapidum_printer",
 	model = "models/props_c17/consolebox01a.mdl",
 	price = 5000,
-	max = 6,
+	max = 9999, -- EDIT LIMIT IN BaseR\Pentities\entities\(printer ent)\init.lua !!!
 	cmd = "buyRapidumBaseRPprinter",
 })
 

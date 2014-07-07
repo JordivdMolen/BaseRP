@@ -11,10 +11,12 @@ local PrintTime2 = 350
 local Health = 100
 local PrintAmountRange1 = 100
 local PrintAmountRange2 = 250
-
+local overheatchance = 22 -- 3 is minimum and biggest change to explode
 local PrintMore
+local Limit = 6 -- VERY IMPORTANT
+	Limit = Limit + 1
 function ENT:Initialize()
-	self:SetModel("models/props_c17/consolebox01a.mdl")
+	self:SetModel("models/props_lab/reciever01b.mdl")
 	self:PhysicsInit(SOLID_VPHYSICS)
 	self:SetMoveType(MOVETYPE_VPHYSICS)
 	self:SetSolid(SOLID_VPHYSICS)
@@ -31,6 +33,12 @@ function ENT:Initialize()
 	self.sound = CreateSound(self, Sound("ambient/levels/labs/equipment_printer_loop1.wav"))
 	self.sound:SetSoundLevel(52)
 	self.sound:PlayEx(1, 100)
+	self:Getowning_ent():SetNWInt("BronzeP", (self:Getowning_ent():GetNWInt("BronzeP") or 0 ) + 1)
+	DarkRP.notify(self:Getowning_ent(), 0, 5, "you own now: " ..self:Getowning_ent():GetNWInt("BronzeP") .." printers of this kind")
+	if self:Getowning_ent():GetNWInt("BronzeP") >= Limit then
+	self:Remove()
+	DarkRP.notify(self:Getowning_ent(), 0, 7, "you have reached the limit!")
+	end
 end
 
 function ENT:OnTakeDamage(dmg)
@@ -122,6 +130,7 @@ function ENT:CreateMoneybag()
 	hook.Run("moneyPrinterPrinted", self, moneybag)
 	self.sparking = false
 	timer.Simple(math.random(PrintTime1, PrintTime2), function() PrintMore(self) end)
+	DarkRP.notify(self:Getowning_ent(), 0, 7, "your Bronze printer has printed: $" ..amount)
 end
 
 function ENT:Think()
@@ -146,4 +155,6 @@ function ENT:OnRemove()
 	if self.sound then
 		self.sound:Stop()
 	end
+	self:Getowning_ent():SetNWInt("BronzeP", (self:Getowning_ent():GetNWInt("BronzeP") or 0 ) - 1)
+	DarkRP.notify(self:Getowning_ent(), 0, 5, "your moneyprinters is sucesfully removed. it has been deleted from the limit count. you own now: " ..self:Getowning_ent():GetNWInt("BronzeP") .." printers of this kind")
 end
