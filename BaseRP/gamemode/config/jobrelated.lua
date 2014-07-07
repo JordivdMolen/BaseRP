@@ -238,9 +238,9 @@ description = [[We can raid ur ass]],
 weapons = {'blowtorch'},
 command = 'Raider',
 max = 5,
-salary = 1000,
+salary = 0,
 admin = 0,
-vote = true,
+vote = false,
 hasLicense = true,
 })
 	
