@@ -1,6 +1,12 @@
 BaseRP
 ======
 
+https://github.com/JMteam09/BaseRPunstable
+
+use that REPO to get my UNSTABLE enteties that are coming soon to the OFFICIAL repo!
+
+======
+
 -=[Official BaseRP repository]=-
 
 The offical gamemode!
