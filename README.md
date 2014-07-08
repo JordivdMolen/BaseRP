@@ -52,3 +52,11 @@ The official gamemode rules:
 7. Respect admins :p
 
 I hope that you enjoy the gamemode!
+
+----------------------Report issues!--------------------------
+
+https://github.com/JMteam09/BaseRP/issues/new
+
+Please if you discover a error. Report it!
+
+--------------------------------------------------------------
