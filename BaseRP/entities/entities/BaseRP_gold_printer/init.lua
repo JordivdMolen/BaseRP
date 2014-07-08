@@ -45,6 +45,8 @@ function ENT:OnTakeDamage(dmg)
 	if self.burningup then return end
 
 	self.damage = (self.damage or 100) - dmg:GetDamage()
+	DarkRP.notify(self:Getowning_ent(), 0, 7, tostring(dmg:GetAttacker()) .." did destroy your printer, !!DESTROYER DID RECEIVE 1/2 OF BUY PRICE")
+	  dmg:GetAttacker():addMoney(12500)
 	if self.damage <= 0 then
 		local rnd = math.random(1, 10)
 		if rnd < 3 then
@@ -126,7 +128,7 @@ function ENT:CreateMoneybag()
 		if math.random(1, overheatchance) == 3 then self:BurstIntoFlames() end
 	end
 
-	local moneybag = DarkRP.createMoneyBag(Vector(MoneyPos.x + 15, MoneyPos.y, MoneyPos.z + 15), amount)
+	local moneybag = DarkRP.createMoneyBag(Vector(MoneyPos.x + 15, MoneyPos.y, MoneyPos.z + 0), amount)
 	hook.Run("moneyPrinterPrinted", self, moneybag)
 	self.sparking = false
 	timer.Simple(math.random(PrintTime1, PrintTime2), function() PrintMore(self) end)
