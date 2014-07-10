@@ -15,7 +15,7 @@ DarkRP mixed with Basewars.
 
 I know there is a gamemode called: GangsterwarsRP.
 
-thats exualy the seam.
+thats actualy the seam.
 
 !!THEY DONT SHARE THEIR PROJECT!!
 
