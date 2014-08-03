@@ -21,11 +21,15 @@ thats actualy the seam.
 
 i am open to share mine.
 
+-----------------------
+
 COPYRIGHT
 
 1. Dont publish gamemode on a other site!
 
 2. Dont edit the gamemode and publish it on a other name
+
+------------------------
 
 On 50 Downloads the gamemode CLOSE!
 
@@ -40,6 +44,8 @@ the project is part of DarkRP.
 config the gamemode as you do in DarkRP.
 
 See DarkRP wiki to see hooks for lua.
+
+-------------------------------
 
 The official gamemode rules:
 
